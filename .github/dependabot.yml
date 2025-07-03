@@ -23,11 +23,11 @@
   open-pull-requests-limit: 5
 
 # Python (pip)
-- package-ecosystem: 'pip'
-  directory: '/' # ändra om requirements.txt ligger i en annan mapp
-  schedule:
-  interval: 'weekly'
-  open-pull-requests-limit: 5
+#- package-ecosystem: 'pip'
+#  directory: '/' # ändra om requirements.txt ligger i en annan mapp
+#  schedule:
+#  interval: 'weekly'
+#  open-pull-requests-limit: 5
 
 # GitHub Actions (alla workflows i .github/workflows/)
 - package-ecosystem: 'github-actions'
@@ -36,10 +36,10 @@
   interval: 'weekly'
 
 # Docker (om Dockerfile används )
-- package-ecosystem: 'docker'
-  directory: '/' # ändra om Dockerfile ligger i annan mapp
-  schedule:
-  interval: 'monthly'
+#- package-ecosystem: 'docker'
+#  directory: '/' # ändra om Dockerfile ligger i annan mapp
+#  schedule:
+#  interval: 'monthly'
 # C# / .NET / Azure via NuGet - Manual dependency handling recommended
 #- package-ecosystem: 'nuget'
 #  directory: '/' # där *.csproj eller *.sln ligger
