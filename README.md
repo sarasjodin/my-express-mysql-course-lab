@@ -1,66 +1,4 @@
-# public-repo-template-portfolio
-
-Template repository for public portfolio or school-related projects. Includes recommended structure, security practices, and an MIT license.
-
-## 📁 Included structure
-
-```
-📁 root/
-├── CHANGELOG.md         ✅ Project changelog
-├── README.md             ✅ Project overview and usage
-├── LICENSE               ✅ MIT license
-└── .github/              ✅ GitHub-specific config and policies
-    ├── SECURITY.md           ✅ Security policy
-    ├── dependabot.yml        ✅ Dependency update automation
-    └── workflows/
-        └── codeql.yml        ✅ Code scanning
-```
-
-## 🛡️ Security & Dependency Updates
-
-This repo-template includes preconfigured security files like dependabot.yml, codeql.yml, and SECURITY.md to help you build secure projects from the start.
-
-- `.github/dependabot.yml` to keep dependencies up-to-date automatically (e.g., npm, GitHub Actions, pip).
-- `.github/workflows/codeql.yml` to enable static code analysis for security vulnerabilities using GitHub CodeQL.
-- `SECURITY.md` to help users report any discovered security vulnerability to the repo owner.
-
-## To ensure full security coverage
-
-### Repository Settings
-
-    ✅ Enable Dependabot alerts
-    Settings > Code security and analysis > Dependabot alerts
-
-    ✅ Enable Secret scanning alerts
-    Settings > Code security and analysis > Secret scanning
-
-    ✅ Enable private vulnerability reporting
-    Settings > Code security and analysis > Private vulnerability reporting
-
-### Review & Clean Up Configuration Files
-
-    ✅ Review .github/dependabot.yml
-        Comment out or remove any unused ecosystems.
-        Unused entries are ignored by GitHub, but trimming improves clarity.
-
-    ✅ Keep or remove .github/workflows/codeql.yml
-        Leave it enabled for repos with source code (e.g., JS, Python, C#).
-        Comment out or remove any unused ecosystems.
-        Unused entries are ignored by GitHub, but email with errors will be sent to repo owner.
-        CodeQL scanning is free for public repos and auto-runs on push/PR/weekly.
-
-    ✅ Add a suitable .gitignore based on your stack (e.g. Node.js, Vite, etc).
-        Add a .env.example and ignore sensitive files like .env
-        Consider documenting environment variables in README.md or .env.example
-
-### Security Transparency
-
-    ✅ Let users report vulnerabilities via SECURITY.md
-        (File already included in this repo template)
-
-# Readme-template to compile for the actual project
-
-# [Project Title]
+# my-express-mysql-course-lab
 
 <a href="https://your-deployment-link" target="_blank" rel="noopener noreferrer">
 Open Live Demo
@@ -70,20 +8,39 @@ Open Live Demo
 
 ---
 
+## About this web app
+
+A full-stack web application for managing and displaying courses in a CV format, built with Node.js, Express, EJS, and a relational database
+
+---
+
+<img src="" alt="User interface for managing CV courses" width="auto"/>
+User interface for managing CV courses
+
+---
+
 ## Features
 
-- ✅ [Feature 1]
-- ✅ [Feature 2]
-- 🔍 Focus on [performance, accessibility, modularity, etc.]
+- ✅ Users can add, list, and delete courses stored in a MySQL database
+- ✅ Server-side form validation using validator and custom logic
+- ✅ Course data includes code, name, syllabus URL, and progression (A/B/C)
+- ✅ Responsive layout built with semantic HTML and CSS
+- ✅ Clean URL routing using Express Router
+- ✅ EJS view engine for dynamic server-rendered pages
+- 🔍 Focus on accessibility, data integrity, and simple modular structure
 
 ---
 
 ## Tech Stack
 
-- HTML / CSS / [JavaScript or TypeScript] / etc.
-- [Vite / Parcel / other build tool] / etc.
-- [Any other tools or APIs] / etc.
-- Netlify (for deployment) / etc.
+- HTML / CSS / JavaScript
+- Node.js / Express.js
+- EJS (Embedded JavaScript Templates)
+- MySQL
+- dotenv
+- validator / sanitize-html (for input validation & sanitation)
+- Render (for server deployment)
+- GitHub (for version control and repo management)
 
 ---
 
@@ -96,9 +53,24 @@ npm run dev
 
 ---
 
-## About This Project
+## More About This Project
 
-[Brief description of what the project is, what it does, and its purpose. Include main functionality, design ideas, or any learning goals.]
+A full-stack web application for managing and displaying courses "in a CV format",
+built with Node.js, Express, EJS, and a MySQL relational database.
+
+Users can:
+- Add new courses via a form
+- View all stored courses
+- Delete (and optionally update) courses
+  
+Each course includes:
+- Course code,
+- Course name,
+- Syllabus URL,
+- and progression (A–C)
+
+Includes server-side validation, responsive layout, and follows best practices in backend web development.
+Built as part of the Backend-Based Web Development course at Mid Sweden University.
 
 ---
 
