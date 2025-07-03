@@ -10,7 +10,7 @@ Open Live Demo
 
 ## About this web app
 
-A full-stack web application for managing and displaying courses in a CV format, built with Node.js, Express, EJS, and a relational database
+A full-stack web application for managing and displaying courses in a CV format, built with Node.js, Express, EJS, and a MySQL relational database.
 
 ---
 
