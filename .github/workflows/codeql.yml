@@ -31,13 +31,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-      language:
-      [] # add the language(s) being used inside the brackets and divided with a comma if more than one language
-      # javascript
-      # typescript
-      # python
-      # csharp
-      # safe to include unused languages, but email with error will be sent to repo owner.
+        language: [javascript]
+        # typescript
+        # python
+        # csharp
+        # safe to include unused languages, but email with error will be sent to repo owner.
 
     steps:
       - name: Checkout repository
