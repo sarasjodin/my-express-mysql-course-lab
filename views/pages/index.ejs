@@ -9,14 +9,63 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <!-- Header partial (includes navigation) -->
-    <%- include('../partials/header', { currentPath }) %>
-    <main>
-      <!-- Course page content -->
-      <h2>Course listnings</h2>
-      <p>This is the home page.</p>
-    </main>
-    <!-- Footer partial -->
-    <%- include('../partials/footer') %>
+    <div class="index container">
+      <!-- Header partial (includes navigation) -->
+      <%- include('../partials/header', { currentPath }) %>
+      <main>
+        <!-- Course page content -->
+        <h2>Course listnings</h2>
+        <a href="/form" class="btn new">Add new course</a>
+        <table>
+          <thead>
+            <tr>
+              <th class="th-code" data-short="Code">Course Code</th>
+              <th class="th-name" data-short="Name">Course Name</th>
+              <th class="th-prog" data-short="Prog.">Progression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% courses.forEach((course) => { %>
+            <tr>
+              <td><%= course.coursecode %></td>
+              <td>
+                <a
+                  class="coursename-link"
+                  href="https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/<%= course.coursecode %>/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <%= course.coursename %>
+                </a>
+              </td>
+              <td><%= course.progression %></td>
+              <td>
+                <form
+                  action="/form/<%= course.id %>"
+                  method="GET"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn edit">Edit</button>
+                </form>
+
+                <form
+                  action="/delete/<%= course.id %>"
+                  method="POST"
+                  class="delete-form"
+                  data-course="<%= course.coursename %>"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn delete">Delete</button>
+                </form>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        </main>
+      <!-- Footer partial -->
+      <%- include('../partials/footer') %>
+    </div>
+    <script src="/js/main.js" defer></script>
   </body>
 </html>

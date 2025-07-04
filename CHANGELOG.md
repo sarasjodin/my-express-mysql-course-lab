@@ -6,17 +6,41 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [2.1.0] - 2025-07-04
-### Added
-- Header partial with dynamic "active" link styling
-- Static CSS integration via `public/css/style.css`
-- Page layout structure with includes
-
----
-
 ## [Unreleased]
 
 - Placeholder for upcoming changes and planned features
+
+---
+
+## [3.0.0]
+
+### Added
+
+- Full CRUD support for courses (Create, Read, Update, Delete)
+- Cancel button in form view for easier editing flow
+- Footer with GitHub link and educational context
+- Basic responsive styling for form and table layouts
+- Server-side validation of course form input using validator (max lengths, URL must be HTTPS)
+
+### Changed
+
+- Improved layout and structure of `form.ejs` and `index.ejs` pages
+- Navigation bar highlights current active page
+
+### Fixed
+
+- Issues with POST routes not parsing form data correctly
+- Rendering issues in mobile view
+
+---
+
+## [2.1.0] - 2025-07-04
+
+### Added
+
+- Header partial with dynamic "active" link styling
+- Static CSS integration via `public/css/style.css`
+- Page layout structure with includes
 
 ---
 
