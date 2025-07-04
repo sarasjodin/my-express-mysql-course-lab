@@ -1,0 +1,34 @@
+<!-- views/partials/header.ejs -->
+<!--
+  Navigation header partial.
+  Highlights the active link using 'currentPath' injected from middleware.
+  This class is used to apply accessible styling.
+-->
+<header>
+  <div class="container">
+    <h1>My Express MySQL database course lab</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/" class="<%= currentPath === '/' ? 'current' : '' %>"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/form"
+            class="<%= currentPath === '/form' ? 'current' : '' %>"
+            >Form</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="<%= currentPath === '/about' ? 'current' : '' %>"
+            >About</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

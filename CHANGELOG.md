@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.1.0] - 2025-07-04
+### Added
+- Header partial with dynamic "active" link styling
+- Static CSS integration via `public/css/style.css`
+- Page layout structure with includes
+
+---
+
 ## [Unreleased]
 
 - Placeholder for upcoming changes and planned features
