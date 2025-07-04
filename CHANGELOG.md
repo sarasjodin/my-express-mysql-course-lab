@@ -12,6 +12,26 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [2.0.0] - 2025-07-04
+
+### Added
+
+- feat(db): add initial MySQL connection and initialization script
+- Added `db.js` with connection pool setup using `mysql2`
+- Created `init-mysql.js` to initialize the `courses` table
+
+### Changed
+
+- Environment variables are now required for database configuration
+- Added `.env.local` handling for local development
+
+### BREAKING CHANGES
+
+- The app now requires a valid `.env.local` file with DB credentials
+- Deployment environments must define `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`
+
+---
+
 ## [1.0.3] – 2025-07-02
 
 ### Changed

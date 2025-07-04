@@ -1,6 +1,9 @@
 // db.js
 const mysql = require('mysql2/promise');
-require('dotenv').config();
+// Ladda .env bara om vi kör lokalt (inte i production/Render)
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: '.env.local' });
+}
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
