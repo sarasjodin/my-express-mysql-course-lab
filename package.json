@@ -1,6 +1,6 @@
 {
   "name": "my-express-mysql-course-lab",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A Node.js and Express course app using MySQL, EJS for learning and testing database integration.",
   "main": "server.js",
   "scripts": {
