@@ -1,12 +1,26 @@
 {
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "mysql2": "^3.14.1"
-  },
+  "name": "my-express-mysql-course-lab",
+  "version": "2.0.0",
+  "description": "A Node.js and Express course app using MySQL, EJS for learning and testing database integration.",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "course",
+    "backend"
+  ],
+  "author": "Sara Sjoedin Scolari",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.0.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
