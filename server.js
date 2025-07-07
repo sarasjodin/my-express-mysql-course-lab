@@ -7,7 +7,9 @@
 /**
  * Load environment variables from a .env file into process.env.
  */
-require('dotenv').config({ path: '.env' });
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 /**
  * Import core modules and initialize Express.
