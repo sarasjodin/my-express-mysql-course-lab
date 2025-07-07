@@ -12,6 +12,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [4.1.0] - 2025-07-08
+
+### Changed
+
+- Replaced external dependencies `express-flash` and `connect-flash` with a custom flash messaging system built with `express-session` only.
+- Simplified flash middleware logic and removed deprecated code.
+- Minor refactoring of how flash messages are passed to views (`res.locals.messages`).
+
+---
+
 ## [4.0.0] - 2025-07-07
 
 ### Added

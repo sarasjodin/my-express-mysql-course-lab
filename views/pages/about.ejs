@@ -67,6 +67,14 @@
           stored in the session and automatically shown on the next page, even
           after a redirect.
         </p>
+        <p>
+          In the end, I had to remove the outdated
+          <code>connect-flash</code> package because it caused issues with error
+          handling and was no longer actively maintained. Instead, I implemented
+          a custom flash message solution using only the above
+          <code>express-session</code>. This gave me more control and made the
+          code easier to debug and maintain.
+        </p>
 
         <p>
           I also discovered how powerful partials are in EJS. They helped me

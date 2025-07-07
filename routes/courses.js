@@ -89,16 +89,10 @@ router.get('/form/:id', async (req, res) => {
     ]);
     if (!course) return res.status(404).send('Course not found');
 
-    // Retrieve flash messages if they exist
-    const message = req.flash('error') || req.flash('success');
-    const messageType = req.flash('error').length > 0 ? 'error' : 'success';
-
     res.render('pages/form', {
       title: 'Edit Course',
       formdata: course, // Send course data to the form
-      editingId: courseId,
-      message: message.length > 0 ? message : null, // Only pass message to the view if it exists
-      messageType: messageType
+      editingId: courseId
     });
   } catch (err) {
     console.error('Error while fetching course for editing:', err.message);

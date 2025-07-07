@@ -7,7 +7,7 @@
 /**
  * Load environment variables from a .env file into process.env.
  */
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env' });
 
 /**
  * Import core modules and initialize Express.
@@ -17,7 +17,6 @@ require('dotenv').config({ path: '.env.local' });
  */
 const path = require('path');
 const express = require('express');
-const flash = require('connect-flash');
 const app = express();
 
 /**
@@ -25,6 +24,20 @@ const app = express();
  * For production environments the port is dynamically assigned.
  */
 const port = process.env.PORT || 3000;
+
+// Help function to set flash messages
+app.use((req, res, next) => {
+  req.flash = (type, message) => {
+    if (!req.session.messages) {
+      req.session.messages = {};
+    }
+    if (!req.session.messages[type]) {
+      req.session.messages[type] = [];
+    }
+    req.session.messages[type].push(message);
+  };
+  next();
+});
 
 /**
  * Set up session handling using express-session.
@@ -49,9 +62,6 @@ app.use(
     }
   })
 );
-
-// Använd connect-flash för att hantera flash-meddelanden
-app.use(flash()); // Lägg till flash som middleware
 
 /**
  * Middleware to parse URL-encoded data from forms.
@@ -91,7 +101,21 @@ app.use((req, res, next) => {
  * Enables display of success and error messages after redirects.
  */
 app.use((req, res, next) => {
-  res.locals.messages = req.flash();
+  req.flash = (type, message) => {
+    if (!req.session.messages) {
+      req.session.messages = {};
+    }
+    if (!req.session.messages[type]) {
+      req.session.messages[type] = [];
+    }
+    req.session.messages[type].push(message);
+  };
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.messages = req.session.messages || {};
+  delete req.session.messages;
   next();
 });
 
