@@ -1,10 +1,10 @@
 /**
  * @file db.js
- * @description Initializes and exports a MySQL connection using environment variables.
+ * @description Initializes and exports a PostgreSQL connection using environment variables.
  * Loads local environment variables from `.env.local` if not in production mode.
  */
 
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 
 // Load environment variables from .env.local in development mode
 require('dotenv').config();
@@ -13,13 +13,14 @@ require('dotenv').config();
  * Creates a MySQL connection pool using configuration from environment variables.
  * The pool handles efficient reuse of connections.
  *
- *  * @type {import('mysql2/promise').Pool}
+ *  * @type {import('pg').Pool}
  */
-const pool = mysql.createPool({
-  host: process.env.DB_HOST, // 'localhost'
-  user: process.env.DB_USER, // database username
-  password: process.env.DB_PASSWORD, // database password
-  database: process.env.DB_NAME // name of the database
+const pool = new Pool({
+  host: process.env.PGHOST, // 'localhost'
+  user: process.env.PGUSER, // database username
+  password: process.env.PGPASSWORD, // database password
+  database: process.env.PGDATABASE, // name of the database
+  port: process.env.PGPORT // port specified
 });
 
 module.exports = pool;

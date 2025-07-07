@@ -6,7 +6,7 @@
 const validator = require('validator');
 const express = require('express');
 const router = express.Router();
-const pool = require('../db/db'); // MySQL connection pool (unused yet, since no database query has been defined)
+const pool = require('../db/db'); // Postgres connection pool
 const validateCourseInput = require('../public/js/validate-course-input');
 
 /**
@@ -16,9 +16,18 @@ const validateCourseInput = require('../public/js/validate-course-input');
  */
 router.get('/', async (req, res) => {
   try {
-    const [courses] = await pool.query(
-      'SELECT * FROM courses ORDER BY created_at DESC'
+    const result = await pool.query(
+      'SELECT * FROM courses ORDER BY COALESCE(updated_at, created_at) DESC'
     );
+    const courses = result.rows;
+
+    // Check limit
+    const countResult = await pool.query(
+      'SELECT COUNT(*) AS total FROM courses'
+    );
+    const total = parseInt(countResult.rows[0].total, 10);
+    const maxReached = total >= 15;
+
     res.render('pages/index', { courses });
   } catch (err) {
     console.error('Error fetching courses:', err);
@@ -53,12 +62,20 @@ router.post('/form', async (req, res) => {
 
   if (!isValid) {
     req.flash('error', errors); // Set error messages
-    return res.redirect('/form');
+    return res.redirect('/');
+  }
+
+  const result = await pool.query('SELECT COUNT(*) AS total FROM courses');
+  const total = parseInt(result.rows[0].total, 10);
+
+  if (total >= 15) {
+    req.flash('error', 'You can only add up to 15 courses.');
+    return res.redirect('/');
   }
 
   try {
     await pool.query(
-      'INSERT INTO courses (coursecode, coursename, syllabus, progression, created_at) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      'INSERT INTO courses (coursecode, coursename, syllabus, progression, created_at) VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP)',
       [
         coursecode.trim(),
         coursename.trim(),
@@ -71,7 +88,7 @@ router.post('/form', async (req, res) => {
   } catch (err) {
     console.error('Error while saving course:', err.message);
     req.flash('error', 'Could not create course.');
-    res.redirect('/form');
+    res.redirect('/');
   }
 });
 
@@ -84,9 +101,11 @@ router.get('/form/:id', async (req, res) => {
     return res.status(400).send('Invalid course ID.');
   }
   try {
-    const [[course]] = await pool.query('SELECT * FROM courses WHERE id = ?', [
+    const result = await pool.query('SELECT * FROM courses WHERE id = $1', [
       courseId
     ]);
+    const course = result.rows[0];
+
     if (!course) return res.status(404).send('Course not found');
 
     res.render('pages/form', {
@@ -119,7 +138,7 @@ router.post('/form/:id', async (req, res) => {
 
   try {
     await pool.query(
-      'UPDATE courses SET coursecode = ?, coursename = ?, syllabus = ?, progression = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
+      'UPDATE courses SET coursecode = $1, coursename = $2, syllabus = $3, progression = $4, updated_at = CURRENT_TIMESTAMP WHERE id = $5',
       [
         coursecode.trim(),
         coursename.trim(),

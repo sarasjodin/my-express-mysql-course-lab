@@ -12,7 +12,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [4.1.0] - 2025-07-08
+## [4.2.0] - 2025-07-07
+
+### Changed
+
+- Replaced the MySQL database to a Postgres to easier deploy through Render.
+- Updated from `my-express-mysql-course-lab` both the local repo and remote GitHub repo to the new name: `my-express-pg-course-lab`.
+
+---
+
+## [4.1.0] - 2025-07-07
 
 ### Changed
 

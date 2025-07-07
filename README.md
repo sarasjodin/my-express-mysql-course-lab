@@ -1,4 +1,4 @@
-# my-express-mysql-course-lab
+# my-express-pg-course-lab
 
 <a href="https://your-deployment-link" target="_blank" rel="noopener noreferrer">
 Open Live Demo
@@ -10,7 +10,7 @@ Open Live Demo
 
 ## About this web app
 
-A full-stack web application for managing and displaying courses in a CV format, built with Node.js, Express, EJS, and a MySQL relational database.
+A full-stack web application for managing and displaying courses in a CV format, built with Node.js, Express, EJS, and a Postgres relational database.
 
 ---
 
@@ -21,7 +21,7 @@ User interface for managing CV courses
 
 ## Features
 
-- ✅ Users can add, list, and delete courses stored in a MySQL database
+- ✅ Users can add, list, and delete courses stored in a Postgres database
 - ✅ Server-side form validation using validator and custom logic
 - ✅ Course data includes code, name, syllabus URL, and progression (A/B/C)
 - ✅ Responsive layout built with semantic HTML and CSS
@@ -36,7 +36,7 @@ User interface for managing CV courses
 - HTML / CSS / JavaScript
 - Node.js / Express.js
 - EJS (Embedded JavaScript Templates)
-- MySQL
+- Postgres
 - dotenv
 - validator / sanitize-html (for input validation & sanitation)
 - Render (for server deployment)
@@ -56,14 +56,16 @@ npm run dev
 ## More About This Project
 
 A full-stack web application for managing and displaying courses "in a CV format",
-built with Node.js, Express, EJS, and a MySQL relational database.
+built with Node.js, Express, EJS, and a Postgres relational database.
 
 Users can:
+
 - Add new courses via a form
 - View all stored courses
 - Delete (and optionally update) courses
-  
+
 Each course includes:
+
 - Course code,
 - Course name,
 - Syllabus URL,
