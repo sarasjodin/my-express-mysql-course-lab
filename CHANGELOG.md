@@ -12,7 +12,25 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [3.0.0]
+## [4.0.0] - 2025-07-07
+
+### Added
+
+- Flash message support using `express-session`, `express-flash`, and `connect-flash` for improved user feedback (error/success).
+- New dedicated About page to describe the app’s purpose and technical details.
+
+### Changed
+
+- Updated the main color scheme to a blue-based palette and changed the app logo.
+- Improved responsiveness and accessibility, including buttons, layout spacing, and cursor feedback.
+
+### Removed
+
+- Removed `workflows/codeql.yml` as static analysis was unnecessary for this project's scope.
+
+---
+
+## [3.0.0] - 2025-07-04
 
 ### Added
 

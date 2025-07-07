@@ -1,6 +1,6 @@
 {
   "name": "my-express-mysql-course-lab",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A Node.js and Express course app using MySQL, EJS for learning and testing database integration.",
   "main": "server.js",
   "scripts": {
@@ -17,9 +17,12 @@
   "author": "Sara Sjoedin Scolari",
   "license": "MIT",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "dotenv": "^17.0.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.1",
     "mysql2": "^3.14.1",
     "validator": "^13.15.15"
   },

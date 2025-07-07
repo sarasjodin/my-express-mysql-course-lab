@@ -15,7 +15,10 @@
       <main>
         <!-- Course page content -->
         <h2>Course listnings</h2>
+        <!-- Flash message (success or error) -->
         <a href="/form" class="btn new">Add new course</a>
+        <!-- Optional flash message (success or error) -->
+        <%- include('../partials/messages') %>
         <table>
           <thead>
             <tr>
@@ -62,7 +65,7 @@
             <% }); %>
           </tbody>
         </table>
-        </main>
+      </main>
       <!-- Footer partial -->
       <%- include('../partials/footer') %>
     </div>

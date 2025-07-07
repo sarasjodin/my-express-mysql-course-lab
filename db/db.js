@@ -7,9 +7,7 @@
 const mysql = require('mysql2/promise');
 
 // Load environment variables from .env.local in development mode
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config({ path: '.env.local' });
-}
+require('dotenv').config();
 
 /**
  * Creates a MySQL connection pool using configuration from environment variables.

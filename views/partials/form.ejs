@@ -4,7 +4,7 @@
   If 'editingId' exists, the form will submit to /form/:id (edit mode).
 -->
 <form method="POST" action="/form<%= editingId ? '/' + editingId : '' %>">
-
+  <div>
     <!-- Course code input field -->
     <label for="coursecode">Course code: </label>
     <input
@@ -44,16 +44,16 @@
         <option value="C" <%= formdata.progression === "C" ? "selected" : "" %>>C</option>
         </select>
         <br/>
-    <!-- Submit button label depends on edit mode -->
-    <input type="submit" value="<%= editingId ? 'Save changes' : 'Store' %>" />
-
+    <div class="form-buttons">
     <!-- If editing, show Cancel button to return to empty form -->
     <% if (editingId) { %>
-      <a href="/form" class="btn cancel">Cancel</a>
+      <a href="/" class="btn cancel">Cancel</a>
     <% } %>
-  </form>
+    <!-- Submit button label depends on edit mode -->
+    <input type="submit" value="<%= editingId ? 'Save changes' : 'Store' %>" />
+    </div>
+  </div>
+</form>
 
   <!-- Optional flash message (success or error) -->
-  <% if (message) { %>
-    <p class="message <%= messageType %>"><%- message %></p>
-  <% } %>
+  <%- include('../partials/messages') %>

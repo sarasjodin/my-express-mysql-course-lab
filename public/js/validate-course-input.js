@@ -1,16 +1,17 @@
 /**
-    Validates input fields for a course form.
-    Ensures that coursecode, coursename, syllabus, and progression are properly formatted.
-    @param {Object} course - The course data to validate.
-    @param {string} course.coursecode - Alphanumeric string (max 6 characters).
-    @param {string} course.coursename - Required string (max 60 characters).
-    @param {string} course.syllabus - Must be a valid HTTPS URL.
-    @param {string} course.progression - Must be either "A", "B", or "C".
-    @returns {Object} Validation result.
-    @returns {boolean} result.isValid - True if all validations pass.
-    @returns {string[]} result.errors - Array of error messages.
-    @returns {Object} result.data - Sanitized course data.
-    */
+ * @file public/js/validate-course-input.js
+ * @description Validates input fields for a course form.
+  Ensures that coursecode, coursename, syllabus, and progression are properly formatted.
+  @param {Object} course - The course data to validate.
+  @param {string} course.coursecode - Alphanumeric string (max 6 characters).
+  @param {string} course.coursename - Required string (max 60 characters).
+  @param {string} course.syllabus - Must be a valid HTTPS URL.
+  @param {string} course.progression - Must be either "A", "B", or "C".
+  @returns {Object} Validation result.
+  @returns {boolean} result.isValid - True if all validations pass.
+  @returns {string[]} result.errors - Array of error messages.
+  @returns {Object} result.data - Sanitized course data.
+  */
 
 const validator = require('validator');
 

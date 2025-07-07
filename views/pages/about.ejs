@@ -12,10 +12,124 @@
     <div class="container">
       <!-- Header partial (includes navigation) -->
       <%- include('../partials/header') %>
-      <main>
+      <main class="about">
         <!-- Static About page content -->
-        <h2>About this app</h2>
-        <p>This is a simple MySQL+Express test app.</p>
+        <h2>About this application</h2>
+
+        <p>
+          This web application was created to demonstrate how to build a
+          server-based project using <strong>Node.js</strong>,
+          <strong>Express</strong>, <strong>EJS</strong>, and a
+          <strong>MySQL database</strong>. The app allows users to add, edit,
+          and delete courses, with all data being stored in a relational
+          database. The backend is connected to a MySQL server, and the frontend
+          uses EJS templates with reusable partials to structure the layout.
+        </p>
+
+        <h3>Key learnings and takeaways</h3>
+
+        <p>
+          Working on this project taught me a lot. Being able to build my own
+          web server and connect it to a database was both useful and
+          satisfying. It gave me a much clearer understanding of how data flows
+          in a full-stack application, from form inputs on the client side to
+          saved rows in a database. At the same time, it made me more aware of
+          the many security risks involved when handling user input.
+        </p>
+
+        <p>
+          At first, I thought I could simplify the syllabus input field by
+          automatically building the full URL using the course code, like
+          this:<br />
+          <code
+            >https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/{coursecode}</code
+          ><br />
+          to reduce user error. But after reviewing the assignment, I realized
+          that users were expected to manually enter the full URL. So I added
+          proper input validation using the <code>validator</code> npm package,
+          making sure each syllabus link starts with <code>https://</code> and
+          is a valid URL before saving it to the database.
+        </p>
+
+        <p>
+          One of the more challenging parts was managing error and success
+          messages. Initially, I used <code>res.render()</code> to display
+          feedback directly, but that didn’t work properly after redirects. I
+          later switched to flash messages using these npm packages:
+        </p>
+        <ul>
+          <li><code>express-session</code></li>
+          <li><code>express-flash</code></li>
+          <li><code>connect-flash</code></li>
+        </ul>
+        <p>
+          This made the user experience more consistent, since messages are
+          stored in the session and automatically shown on the next page, even
+          after a redirect.
+        </p>
+
+        <p>
+          I also discovered how powerful partials are in EJS. They helped me
+          keep the layout clean and reusable for things like headers, footers,
+          and forms. However, it took some effort to make dynamic logic work
+          across views, especially when highlighting active links using
+          <code>currentPath</code>, or conditionally showing form elements using
+          <code>editingId</code>.
+        </p>
+
+        <p>
+          Another thing I learned was how important it is to organize code into
+          separate files, such as routes, validation functions, and the database
+          connection (<code>db.js</code>). This structure made it much easier to
+          read and maintain the code, and made future changes (like switching
+          the database or adjusting validation rules) more manageable.
+        </p>
+
+        <p>
+          I also gained a better understanding of how middleware works in
+          Express. Knowing how requests pass through different stages, like
+          session setup, flash handling, or validation, helped me debug and
+          build features in a cleaner way.
+        </p>
+
+        <p>
+          Finally, I saw the value in preserving form data when validation
+          fails. By storing the user’s input in
+          <code>req.session.formdata</code>, I made sure the form repopulates
+          with their original values after a failed submission, reducing
+          frustration and improving the overall experience.
+        </p>
+
+        <h3>Final thoughts</h3>
+
+        <p>
+          Building this course application gave me a deeper understanding of how
+          server-based web development really works. It connected many smaller
+          pieces, like form handling, routing, sessions, database integration,
+          and validation, into one system.
+        </p>
+
+        <p>
+          Even though this was my first full-stack project using Node.js,
+          Express, and MySQL, I was able to create a working application where
+          users can add, edit, and delete data in a structured way. It felt
+          rewarding to see everything come together, and I learned a lot along
+          the way.
+        </p>
+
+        <p>
+          I also realized that user experience is not just about design, but
+          also about good error handling, validation, and feedback. Making sure
+          the user knows what’s happening, especially when something goes wrong,
+          is just as important as making the interface look good.
+        </p>
+
+        <p>
+          Overall, I’m very happy with how this project turned out. It gave me
+          hands-on practice with tools and techniques that I will definitely use
+          in future development. I now feel more confident working with backend
+          logic, databases, and building apps that handle real data.
+        </p>
       </main>
       <!-- Footer partial -->
       <%- include('../partials/footer') %>

@@ -12,7 +12,9 @@
         <a href="/" class="<%= currentPath === '/' ? 'current' : '' %>">Home</a>
       </li>
       <li>
-        <a href="/form" class="<%= currentPath === '/form' ? 'current' : '' %>"
+        <a
+          href="/form"
+          class="<%= currentPath.startsWith('/form') ? 'current' : '' %>"
           >Form</a
         >
       </li>

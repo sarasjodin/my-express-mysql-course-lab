@@ -3,10 +3,55 @@
  * @description Entry point for the Express application.
  * Sets up middleware, static files, EJS templating, and routing.
  */
+
+/**
+ * Load environment variables from a .env file into process.env.
+ */
+require('dotenv').config({ path: '.env.local' });
+
+/**
+ * Import core modules and initialize Express.
+ * - `path`: Node.js core module for handling file paths.
+ * - `express`: Web framework used to build the server.
+ * - `app`: The main Express application instance.
+ */
 const path = require('path');
 const express = require('express');
+const flash = require('connect-flash');
 const app = express();
-const port = 3000;
+
+/**
+ * Define the port number using environment variable or fallback to 3000.
+ * For production environments the port is dynamically assigned.
+ */
+const port = process.env.PORT || 3000;
+
+/**
+ * Set up session handling using express-session.
+ * Stores session data server-side and enables flash messaging.
+ * - `secret`: Used to sign the session ID cookie.
+ * - `resave`: Avoid resaving unchanged sessions.
+ * - `saveUninitialized`: Save new but unmodified sessions.
+ */
+const session = require('express-session');
+
+if (!process.env.SESSION_SECRET) {
+  console.error('SESSION_SECRET is missing. Using a default secret.');
+  process.exit(1); // Exit if session secret is missing
+}
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'defaultSecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production' // Endast i produktion, sätt cookien som secure (enbart för HTTPS)
+    }
+  })
+);
+
+// Använd connect-flash för att hantera flash-meddelanden
+app.use(flash()); // Lägg till flash som middleware
 
 /**
  * Middleware to parse URL-encoded data from forms.
@@ -37,6 +82,16 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
+  next();
+});
+
+/**
+ * @middleware
+ * Makes flash messages available in all EJS views via `messages`.
+ * Enables display of success and error messages after redirects.
+ */
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
   next();
 });
 

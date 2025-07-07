@@ -1,0 +1,10 @@
+<!--views/partials/messages.ejs
+  Displays flash messages for success and error feedback.
+  Loops through messages set in res.locals.messages and shows each one. -->
+<% if (typeof messages !== 'undefined' && messages.error) { %> <%
+messages.error.forEach(function(msg) { %>
+<div class="message error"><%= msg %></div>
+<% }) %> <% } %> <% if (typeof messages !== 'undefined' && messages.success) {
+%> <% messages.success.forEach(function(msg) { %>
+<div class="message success"><%= msg %></div>
+<% }) %> <% } %>
