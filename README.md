@@ -1,10 +1,10 @@
 # my-express-pg-course-lab
 
-<a href="[https://your-deployment-link](https://my-express-pg-course-lab.onrender.com)" target="_blank" rel="noopener noreferrer">
+<a href="https://my-express-pg-course-lab.onrender.com" target="_blank" rel="noopener noreferrer">
 Open Live Demo
 </a> <br><br>
 
-[![Netlify Status badge or similar]]
+[![App Status](https://img.shields.io/badge/render-live-brightgreen)](https://my-express-pg-course-lab.onrender.com)
 
 ---
 
@@ -80,6 +80,7 @@ Built as part of the Backend-Based Web Development course at Mid Sweden Universi
 
 <img src="https://github.com/user-attachments/assets/24b642df-9a06-4de8-9ba4-e787402c521a" alt="part of folder structure" width="150"/>
 Part of folder structure
+
 ---
 
 ## Security
