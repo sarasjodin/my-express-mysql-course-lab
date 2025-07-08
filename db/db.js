@@ -16,7 +16,7 @@ require('dotenv').config();
  *  * @type {import('pg').Pool}
  */
 const pool = new Pool({
-  host: process.env.PGHOST, // 'localhost'
+  host: process.env.PGHOST, // host
   user: process.env.PGUSER, // database username
   password: process.env.PGPASSWORD, // database password
   database: process.env.PGDATABASE, // name of the database

@@ -12,6 +12,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [4.3.0] – 2025-07-08
+
+### Added
+- "Important Notice" section on the Index page, warning users about unverified user-submitted data and external links.
+- Additional explanation in the About page regarding the database design, including a ER diagram and description of the "courses" table.
+
+### Fixed
+- Corrected parameter binding in `router.post('/delete/:id')`.
+
+### Improved
+- Clarified the purpose of the application and linked to the official Web Development program curriculum at Mid Sweden University.
+
+---
+
 ## [4.2.0] - 2025-07-07
 
 ### Changed

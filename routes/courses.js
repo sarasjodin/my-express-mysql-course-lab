@@ -170,7 +170,7 @@ router.post('/delete/:id', async (req, res) => {
   }
 
   try {
-    await pool.query('DELETE FROM courses WHERE id = ?', [id]);
+    await pool.query('DELETE FROM courses WHERE id = $1', [id]);
     req.flash('success', 'Course deleted successfully!');
     res.redirect('/'); // Redirect to the homepage after deletion
   } catch (err) {

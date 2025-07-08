@@ -22,9 +22,48 @@
           <strong>Express</strong>, <strong>EJS</strong>, and a
           <strong>Postgres database</strong>. The app allows users to add, edit,
           and delete courses, with all data being stored in a relational
-          database. The backend is connected to a Postgres server, and the frontend
-          uses EJS templates with reusable partials to structure the layout.
+          database. The backend is connected to a Postgres server, and the
+          frontend uses EJS templates with reusable partials to structure the
+          layout.
         </p>
+
+        <p>
+          The project was initially developed using a
+          <strong>MySQL</strong> database. However, when deploying to
+          <strong>Render</strong>, I discovered that their managed database
+          services are primarily optimized for <strong>PostgreSQL</strong>. As a
+          result, I migrated the schema and queries from MySQL to Postgres to
+          ensure compatibility and smooth deployment.
+        </p>
+
+        <h2>Database design</h2>
+        <p>
+          A PostgreSQL database was created with a single table named
+          <code>courses</code>. This table stores all course-related
+          information. Below is the ER diagram describing the structure of the
+          table:
+        </p>
+
+        <h3>ER-diagram: Courses</h3>
+        <figure>
+          <pre><code>
++---------------------------------------+
+|         courses                       |
++---------------------------------------+
+| PK  id          SERIAL                |
+|     coursecode  VARCHAR(6) NOT NULL   |
+|     coursename  VARCHAR(60) NOT NULL  |
+|     syllabus    TEXT NOT NULL         |
+|     progression CHAR(1) CHECK (A,B,C) |
+|     created_at  TIMESTAMP DEFAULT NOW |
+|     updated_at  TIMESTAMP             |
++----------------------------------------+
+  </code></pre>
+          <figcaption>
+            <strong>Figure 1:</strong> Entity-Relationship diagram for the
+            "courses" table
+          </figcaption>
+        </figure>
 
         <h3>Key learnings and takeaways</h3>
 
@@ -108,6 +147,14 @@
           frustration and improving the overall experience.
         </p>
 
+        <p>
+          As a practical consideration, I also chose to limit the number of
+          course entries that can be added to the application. Since this is an
+          educational project deployed on a free-tier service, keeping the
+          database size under control helps avoid potential performance issues
+          and unexpected costs.
+        </p>
+
         <h3>Final thoughts</h3>
 
         <p>
@@ -119,10 +166,10 @@
 
         <p>
           Even though this was my first full-stack project using Node.js,
-          Express, and Postgres, I was able to create a working application where
-          users can add, edit, and delete data in a structured way. It felt
-          rewarding to see everything come together, and I learned a lot along
-          the way.
+          Express, and Postgres, I was able to create a working application
+          where users can add, edit, and delete data in a structured way. It
+          felt rewarding to see everything come together, and I learned a lot
+          along the way.
         </p>
 
         <p>

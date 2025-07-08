@@ -1,6 +1,6 @@
 {
   "name": "my-express-pg-course-lab",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "A Node.js and Express course app using Postgres, EJS for learning and testing database integration.",
   "main": "server.js",
   "scripts": {
