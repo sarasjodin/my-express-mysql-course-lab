@@ -1,6 +1,6 @@
 # my-express-pg-course-lab
 
-<a href="https://your-deployment-link" target="_blank" rel="noopener noreferrer">
+<a href="[https://your-deployment-link](https://my-express-pg-course-lab.onrender.com)" target="_blank" rel="noopener noreferrer">
 Open Live Demo
 </a> <br><br>
 
@@ -14,7 +14,7 @@ A full-stack web application for managing and displaying courses in a CV format,
 
 ---
 
-<img src="" alt="User interface for managing CV courses" width="auto"/>
+<img src="https://github.com/user-attachments/assets/9526b68a-b6cb-43aa-bd93-5a219fff7b30" alt="User interface for managing CV courses" width="auto"/>
 User interface for managing CV courses
 
 ---
@@ -78,8 +78,8 @@ Built as part of the Backend-Based Web Development course at Mid Sweden Universi
 
 ## Folder Structure
 
-<img src="" alt="folder structure" width="150"/>
-
+<img src="https://github.com/user-attachments/assets/24b642df-9a06-4de8-9ba4-e787402c521a" alt="part of folder structure" width="150"/>
+Part of folder structure
 ---
 
 ## Security
