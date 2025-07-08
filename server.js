@@ -56,11 +56,12 @@ if (!process.env.SESSION_SECRET) {
 }
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'defaultSecret',
+    secret: process.env.SESSION_SECRET || 'fallback-secret',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === 'production' // Endast i produktion, sätt cookien som secure (enbart för HTTPS)
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax'
     }
   })
 );
